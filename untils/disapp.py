@@ -9,7 +9,7 @@
 from  config.config import *
 from  untils.log import logger
 @logger('开始从配置文件中获取测试相关的配置')
-def make_dis():
+def make_dis(Testplatform,TestplatformVersion,Testdevicesname,TestappPackage,TestappActivity):
     dis_app={}
     dis_app['platformName'] = Testplatform
     dis_app['platformVersion'] = TestplatformVersion

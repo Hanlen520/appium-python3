@@ -8,13 +8,13 @@
 import  os,time
 from untils.log import LOG,logger
 path=os.getcwd()
-now = time.strftime('%Y-%m-%d-%H-%M', time.localtime(time.time()))
-recording=path+'\\testreport\\%s.txt'%now
+now = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+recording=path+'\\testreport\\%s-xing.txt'%now
 @logger('记录当前的cpu占有率，内存')
-def write_recording(cpu,neicun):
+def write_recording(cpu,neicun,devices):
     try:
         with open(recording,'a',encoding='utf-8') as f:
-            m='cpu:%s,内存：%s'%(cpu,neicun)
+            m='%s：cpu:%s,内存：%s'%(devices,cpu,neicun)
             f.write(m+'\n')
             f.close()
     except Exception as e:
