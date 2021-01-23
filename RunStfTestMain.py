@@ -75,7 +75,8 @@ def runnerPool(getDevices):
         _pool.append(_initApp)
         devices_Pool.append(_initApp)
     pool = Pool(len(devices_Pool))
-    pool.map(runnerCaseApp, devices_Pool)
+    for dev in devices_Pool:
+        pool.map(runnerCaseApp, dev)
     pool.close()
     pool.join()
 
@@ -96,7 +97,8 @@ if __name__ == "__main__":
     start_time = datetime.datetime.now()
     makecasefile('reg', 'reg', 'reg')
     path = os.getcwd()
-    filenm = path + '/testreport/' + 'result.xls'
+    report=os.path.join(path,'testreport')
+    filenm = report + 'result.xls'
     devicess = connectmobile(testnum)
     listport = []
     if len(devicess) > 0:
